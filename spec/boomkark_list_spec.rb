@@ -1,7 +1,7 @@
 require 'bookmark_list'
 
-describe Bookmarks do
+describe BookmarkList do
   it 'displays the users boomarks in a list' do
-    expect(subject).to eq :list
+    expect(subject.list).to eq([1, 2])
   end
 end

@@ -1,6 +1,6 @@
 feature 'Displays list of bookamrks' do
-  scenraio 'A user sees their bookmarks in a list' do
-    view ('/bookmarks')
-    expect(page).to have_content "This is a list of bookmarks"
+  scenario 'A user sees their bookmarks in a list' do
+    visit ('/bookmarks')
+    expect(page).to have_content "These are your bookmarks"
   end
 end

@@ -4,7 +4,11 @@ class Bookmark
 
   def self.show_list
     storage = []
-    con = PG.connect :dbname => 'bookmarks', :user => 'graham'
+    if ENV['ENVIRONMENT'] == 'test'
+      con = PG.connect :dbname => 'bookmarks_test', :user => 'graham' #RSPEC
+    else
+      con = PG.connect :dbname => 'bookmarks', :user => 'graham' #LOCALHOST
+    end
     rows = con.exec "SELECT * FROM bookmark_list;"
     #rows = con.exec "SELECT * bo"
     @bookmark = [Bookmark.new, Bookmark.new]
